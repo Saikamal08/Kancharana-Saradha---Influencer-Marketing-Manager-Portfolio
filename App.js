@@ -5,7 +5,7 @@ import {
   FiArrowRight, FiMenu, FiX, FiExternalLink, FiStar,
   FiTrendingUp, FiUsers, FiBarChart2, FiAward, FiTarget, FiHeart
 } from 'react-icons/fi';
-import heroImg from './assets/hero.png';
+import heroImg from './assets/hero.jpeg';
 import aboutImg from './assets/about.png';
 import workImg from './assets/work.png';
 import logoImg from './assets/logo.png';
@@ -45,8 +45,7 @@ function Navbar() {
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <div className="nav-logo" onClick={() => scrollTo('hero')}>
-          <span className="logo-initials">KS</span>
-          <span className="logo-dot" />
+          <img src={logoImg} alt="Kancharana Jyothsna" className="nav-logo-img" />
         </div>
 
         <ul className="nav-links">
@@ -121,7 +120,7 @@ function Hero() {
   return (
     <section id="hero" className="hero">
       <motion.div className="hero-bg-wrap" style={{ y }}>
-        <img src={heroImg} alt="Kancharana Saradha" className="hero-bg-img" />
+        <img src={heroImg} alt="Kancharana Jyothsna" className="hero-bg-img" />
         <div className="hero-overlay" />
       </motion.div>
 
@@ -153,7 +152,7 @@ function Hero() {
           transition={{ duration: 0.8, delay: 0.9 }}
         >
           <div>
-            <p className="hero-name">Kancharana. Saradha</p>
+            <p className="hero-name">Kancharana Jyothsna</p>
             <p className="hero-role">Influencer Marketing Manager</p>
           </div>
           <div className="hero-tagline-wrap">
@@ -202,10 +201,10 @@ function Hero() {
 // ─── Stats Bar ────────────────────────────────────────────────────
 function StatsBar() {
   const stats = [
-    { value: '50+', label: 'Brands Collaborated' },
-    { value: '200+', label: 'Campaigns Managed' },
-    { value: '5M+', label: 'Reach Generated' },
-    { value: '4 Yrs', label: 'Industry Experience' },
+    { value: '30+', label: 'Brands Collaborated' },
+    { value: '100+', label: 'Campaigns Managed' },
+    { value: '1M+', label: 'Reach Generated' },
+    { value: '2 Yrs', label: 'Industry Experience' },
   ];
 
   const { ref, inView } = useFadeIn();
@@ -248,12 +247,12 @@ function About() {
           transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <div className="about-img-frame">
-            <img src={aboutImg} alt="Saradha" className="about-img" />
+            <img src={aboutImg} alt="Jyothsna" className="about-img" />
             <div className="about-img-overlay" />
             <div className="about-img-border" />
             <div className="about-badge">
               <FiStar className="badge-icon" />
-              <span>5+ Years</span>
+              <span>2+ Years</span>
             </div>
           </div>
         </motion.div>
@@ -270,7 +269,7 @@ function About() {
           </h2>
           <div className="about-divider" />
           <p className="about-text">
-            I'm <strong>Kancharana Saradha</strong>, an Influencer Marketing Manager passionate about
+            I'm <strong>Kancharana Jyothsna</strong>, an Influencer Marketing Manager passionate about
             building authentic connections between brands and content creators. With years of hands-on
             experience, I specialize in crafting data-driven influencer campaigns that resonate,
             engage, and convert.
@@ -373,12 +372,26 @@ function Services() {
 function Portfolio() {
   const { ref, inView } = useFadeIn();
 
-  const campaigns = [
-    { category: 'Fashion', title: 'D2C Brand Launch', result: '2.4M Impressions', color: '#c9a96e' },
-    { category: 'Beauty', title: 'Product Seeding Campaign', result: '340% ROI', color: '#d4748a' },
-    { category: 'Lifestyle', title: 'Long-term Creator Program', result: '80 Creators', color: '#7ab5c9' },
-    { category: 'Food & Bev', title: 'Restaurant Grand Opening', result: '1.2M Reach', color: '#a9c97a' },
-  ];
+ const campaigns = [
+  { 
+    category: 'Film Industry', 
+    title: 'Movie Brats Collaboration', 
+    result: 'Worked on film-related campaigns', 
+    color: '#c9a96e' 
+  },
+  { 
+    category: 'Media Company', 
+    title: 'Eco Craft Media Pvt Limited', 
+    result: 'Handled digital & influencer campaigns', 
+    color: '#c9a96e'
+  },
+  { 
+    category: 'Influencer Marketing', 
+    title: 'Celebrity & Serial Actor Collaborations', 
+    result: 'Partnered with actors & influencers', 
+    color: '#c9a96e' 
+  }
+];
 
   return (
     <section id="portfolio" className="portfolio">
@@ -406,12 +419,11 @@ function Portfolio() {
             <img src={workImg} alt="Campaign Work" className="portfolio-img" />
             <div className="portfolio-img-overlay">
               <div className="portfolio-img-content">
-                <span className="portfolio-tag">Hyderabad · Café Collaboration</span>
-                <h3 className="portfolio-img-title">Bagel Kraft Launch</h3>
-                <p className="portfolio-img-desc">On-ground influencer activation driving awareness for new café opening</p>
+                <span className="portfolio-tag">Hyderabad</span>
+                <h3 className="portfolio-img-title">EchoCraft Media</h3>
                 <div className="portfolio-result">
                   <FiTrendingUp size={14} />
-                  <span>500K+ Organic Impressions</span>
+                  <span>500+ Organic Impressions</span>
                 </div>
               </div>
             </div>
@@ -428,13 +440,15 @@ function Portfolio() {
                 transition={{ delay: i * 0.1 + 0.3 }}
                 whileHover={{ x: -4, transition: { duration: 0.2 } }}
               >
-                <div className="campaign-color-dot" style={{ background: c.color }} />
                 <div className="campaign-info">
                   <span className="campaign-category">{c.category}</span>
-                  <h4 className="campaign-title">{c.title}</h4>
-                </div>
-                <div className="campaign-result" style={{ color: c.color }}>
-                  {c.result}
+                  <div className="campaign-title-row">
+                    <div className="campaign-color-dot" style={{ background: c.color }} />
+                    <h4 className="campaign-title">{c.title}</h4>
+                  </div>
+                  <div className="campaign-result" style={{ color: c.color }}>
+                    {c.result}
+                  </div>
                 </div>
                 <FiExternalLink className="campaign-arrow" size={14} />
               </motion.div>
@@ -552,8 +566,11 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner">
-        <p className="footer-name">Kancharana. Saradha</p>
-        <p className="footer-copy">© {new Date().getFullYear()} · Influencer Marketing Manager · All rights reserved</p>
+        <p className="footer-name">Kancharana Jyothsna</p>
+        <p className="footer-copy">
+          © {new Date().getFullYear()} · Influencer Marketing Manager · All rights reserved<br />
+          @Designed by <a href="https://www.instagram.com/s_a_i_k_a_m_a_l?igsh=amUyZzdpaXQ3NXEz" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Sai Kamal</a>
+        </p>
       </div>
     </footer>
   );
